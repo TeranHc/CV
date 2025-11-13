@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        xintegrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Portfolio - Kevin Teran Rodriguez</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://placehold.co/32x32/F59E0B/FFFFFF?text=KT">
+    
+    <!-- Configuración de Tailwind y Fuentes -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        // Paleta de Amber (Ámbar/Dorado) como acento
+                        'amber': {
+                            '50': '#fffbeb',
+                            '100': '#fef3c7',
+                            '200': '#fde68a',
+                            '300': '#fcd34d',
+                            '400': '#fbbf24',
+                            '500': '#f59e0b',
+                            '600': '#d97706',
+                            '700': '#b45309',
+                            '800': '#92400e',
+                            '900': '#78350f',
+                            '950': '#451a03'
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #27272a; /* zinc-800 */
+            color: #e4e4e7; /* zinc-200 */
+        }
+
+        /* Estilo para el enlace de navegación activo */
+        .nav-active {
+            color: #fbbf24; /* amber-400 */
+            font-weight: 600;
+        }
+        .nav-link-item {
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .nav-link-item .nav-line {
+            width: 1.5rem; /* 24px */
+            height: 1px;
+            background-color: #71717a; /* zinc-500 */
+            transition: all 0.3s ease;
+            margin-right: 0.5rem;
+        }
+        .nav-link-item:hover .nav-line,
+        .nav-active .nav-line {
+            width: 3rem; /* 48px */
+            background-color: #fbbf24; /* amber-400 */
+        }
+        .nav-link-item:hover .nav-text,
+        .nav-active .nav-text {
+            color: #f4f4f5; /* zinc-100 */
+        }
+
+
+        /* Overlay para botones */
+        .btn-overlay {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .btn-overlay .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: scaleX(0);
+            transition: transform 0.4s ease-out;
+            transform-origin: left;
+        }
+        .btn-overlay:hover .overlay {
+            transform: scaleX(1);
+        }
+
+        /* Timeline del curriculum */
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+            padding-left: 2.5rem;
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-connector {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #52525b; /* zinc-600 */
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -8px; /* Ajusta para centrar el círculo en la línea */
+            top: 4px;
+            width: 18px;
+            height: 18px;
+            background-color: #f59e0b; /* amber-500 */
+            border: 3px solid #3f3f46; /* zinc-700 */
+            border-radius: 50%;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body class="antialiased bg-zinc-800 text-zinc-200">
+
+    <!-- Contenedor Principal -->
+    <div class="container mx-auto max-w-7xl px-4">
+        <div class="lg:flex lg:gap-16">
+
+            <!-- COLUMNA IZQUIERDA (FIJA) -->
+            <header id="inicio" class="lg:w-1/3 lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-between lg:py-16 py-10">
+                <!-- Info Principal -->
+                <div>
+                    <!-- Botón de menú móvil -->
+                    <div class="flex justify-between items-center lg:hidden mb-6">
+                        <div class="logo">
+                            <a href="#" class="text-xl font-bold text-amber-400 hover:text-amber-300 transition-colors">KEVIN JOHAO TERAN RODRIGUEZ</a>
+                        </div>
+                        <div class="nav-responsive text-2xl text-amber-400 cursor-pointer" onclick="mostrarOcultarMenu()">
+                            <i id="menuIcon" class="fa-solid fa-bars"></i>
+                        </div>
+                    </div>
+
+                    <!-- Info para Desktop -->
+                    <div class="hidden lg:block">
+                        <!-- ##### FOTO DE PERFIL (DESKTOP) ##### -->
+                        <img class="rounded-full w-56 h-56 mb-6 shadow-lg border-4 border-zinc-700"  src="img/yo.jpeg" alt="Foto de Kevin Teran"
+                             onerror="this.onerror=null;this.src='https://placehold.co/128x128/3f3f46/f59e0b?text=KT';">
+                        
+                        <h1 class="text-4xl md:text-4xl font-bold text-amber-400">KEVIN JOHAO TERAN RODRIGUEZ</h1>
+                        <h2 class="text-xl md:text-2xl text-zinc-100 mt-2">DESARROLLADOR WEB Y ANALISTA DE DATOS</h2>
+                        <p class="text-zinc-300 mt-4 max-w-xs">
+                            Egresado de Ingeniería en Sistemas de Información, proactivo, analítico y orientado a resultados,
+                            listo para aportar valor a las organizaciones.
+                        </p>
+                    </div>
+
+                    <!-- Navegación -->
+                    <nav id="nav" class="hidden lg:block mt-12">
+                        <ul id="nav-menu" class="flex-col space-y-4">
+                            <li>
+                                <a href="#sobremi" class="nav-link-item nav-link">
+                                    <span class="nav-line"></span>
+                                    <span class="nav-text text-zinc-300 font-semibold uppercase tracking-widest text-sm">Sobre Mí</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#skills" class="nav-link-item nav-link">
+                                    <span class="nav-line"></span>
+                                    <span class="nav-text text-zinc-300 font-semibold uppercase tracking-widest text-sm">Habilidades</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#curriculum" class="nav-link-item nav-link">
+                                    <span class="nav-line"></span>
+                                    <span class="nav-text text-zinc-300 font-semibold uppercase tracking-widest text-sm">Currículum</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#portfolio" class="nav-link-item nav-link">
+                                    <span class="nav-line"></span>
+                                    <span class="nav-text text-zinc-300 font-semibold uppercase tracking-widest text-sm">Portafolio</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#contacto" class="nav-link-item nav-link">
+                                    <span class="nav-line"></span>
+                                    <span class="nav-text text-zinc-300 font-semibold uppercase tracking-widest text-sm">Contacto</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!-- Redes Sociales (Desktop) -->
+                    <div class="redes hidden lg:flex justify-start space-x-4 mt-8">
+                        <a href="#" target="_blank" rel="noopener noreferrer"
+                            aria-label="Perfil de LinkedIn"
+                            class="w-10 h-10 bg-zinc-700 rounded-full flex items-center justify-center text-zinc-300 hover:bg-amber-500 hover:text-white transition-all duration-300 transform hover:scale-110">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"
+                            aria-label="Perfil de GitHub"
+                            class="w-10 h-10 bg-zinc-700 rounded-full flex items-center justify-center text-zinc-300 hover:bg-amber-500 hover:text-white transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-github text-lg"></i>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"
+                            aria-label="Portafolio"
+                            class="w-10 h-10 bg-zinc-700 rounded-full flex items-center justify-center text-zinc-300 hover:bg-amber-500 hover:text-white transition-all duration-300 transform hover:scale-110">
+                            <i class="fa-solid fa-briefcase text-lg"></i>
+                        </a>
+                    </div>
+
+                    <!-- Nav Móvil (Contenedor) -->
+                    <nav id="nav-mobile" class="hidden lg:hidden bg-zinc-700 shadow-lg rounded-lg mt-4 border border-zinc-600">
+                        <ul class="flex flex-col p-4">
+                            <li><a href="#sobremi" onclick="seleccionar()" class="block text-zinc-200 hover:text-amber-400 transition-colors py-2 nav-link-mobile">Sobre Mí</a></li>
+                            <li><a href="#skills" onclick="seleccionar()" class="block text-zinc-200 hover:text-amber-400 transition-colors py-2 nav-link-mobile">Habilidades</a></li>
+                            <li><a href="#curriculum" onclick="seleccionar()" class="block text-zinc-200 hover:text-amber-400 transition-colors py-2 nav-link-mobile">Currículum</a></li>
+                            <li><a href="#portfolio" onclick="seleccionar()" class="block text-zinc-200 hover:text-amber-400 transition-colors py-2 nav-link-mobile">Portafolio</a></li>
+                            <li><a href="#contacto" onclick="seleccionar()" class="block text-zinc-200 hover:text-amber-400 transition-colors py-2 nav-link-mobile">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Footer de la Columna Izquierda -->
+                <div>
+                    <!-- Botón CV -->
+                    <a href="pdfs/CV.pdf" download="CV.pdf" target="_blank"
+                        class="btn-overlay w-full inline-block mt-8 bg-amber-600 text-white text-center font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-amber-400/30 hover:bg-amber-700 transition-all duration-300 transform hover:-translate-y-1">
+                        Descargar CV <i class="fa-solid fa-download ml-2"></i>
+                        <span class="overlay"></span>
+                    </a>
+                    
+                    <!-- Redes Sociales (Mobile) -->
+                    <div class="redes flex lg:hidden justify-center space-x-4 mt-8">
+                        <a href="#" target="_blank" rel="noopener noreferrer"
+                            aria-label="Perfil de LinkedIn"
+                            class="w-10 h-10 bg-zinc-700 rounded-full flex items-center justify-center text-zinc-300 hover:bg-amber-500 hover:text-white transition-all duration-300 transform hover:scale-110">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"
+                            aria-label="Perfil de GitHub"
+                            class="w-10 h-10 bg-zinc-700 rounded-full flex items-center justify-center text-zinc-300 hover:bg-amber-500 hover:text-white transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-github text-lg"></i>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"
+                            aria-label="Portafolio"
+                            class="w-10 h-10 bg-zinc-700 rounded-full flex items-center justify-center text-zinc-300 hover:bg-amber-500 hover:text-white transition-all duration-300 transform hover:scale-110">
+                            <i class="fa-solid fa-briefcase text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- COLUMNA DERECHA (SCROLLABLE) -->
+            <main class="lg:w-2/3 lg:py-16">
+
+                <!-- SECCION SOBRE MI -->
+                <section id="sobremi" class="sobremi mb-20 scroll-mt-20">
+                    <div class="about-content grid grid-cols-1 gap-8">
+                        <!-- Columna de Texto Principal -->
+                        <div class="about-text">
+                            <div class="bg-zinc-700 p-8 rounded-lg shadow-lg border border-zinc-600">
+                                <div class="intro-text text-zinc-200 space-y-4">
+                                    <p class="text-xl">
+                                        <span class="font-semibold text-amber-400">Hola, Soy KEVIN JOHAO TERAN RODRIGUEZ.</span>
+                                        Con estudio de Ingeniería en Sistemas de Información, con sólida preparación en desarrollo web, análisis de
+                                        datos y optimización de procesos. Me caracterizo por ser una persona proactiva, analítica y orientada a
+                                        resultados, con experiencia práctica en el diseño de aplicaciones web y en el uso de datos para apoyar la
+                                        toma de decisiones.
+                                    </p>
+                                    <p>
+                                        Busco aplicar mis conocimientos para desarrollar soluciones tecnológicas que mejoren
+                                        la eficiencia y aporten valor a las organizaciones.
+                                    </p>
+                                </div>
+        
+                                <!-- Fortalezas (Se mantienen como placeholder) -->
+                                <div class="strengths-grid grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+                                    <div class="strength-item flex items-start space-x-4">
+                                        <i class="fa-solid fa-medal text-3xl text-amber-500 mt-1"></i>
+                                        <div class="strength-content">
+                                            <h4 class="font-semibold text-lg text-zinc-100">Compromiso con la Calidad</h4>
+                                            <p class="text-zinc-300">Enfoque meticuloso en el diseño, codificación y pruebas de software.</p>
+                                        </div>
+                                    </div>
+                                    <div class="strength-item flex items-start space-x-4">
+                                        <i class="fa-solid fa-handshake text-3xl text-amber-500 mt-1"></i>
+                                        <div class="strength-content">
+                                            <h4 class="font-semibold text-lg text-zinc-100">Trabajo Colaborativo</h4>
+                                            <p class="text-zinc-300">Fuerte jugador de equipo que disfruta compartir conocimiento.</p>
+                                        </div>
+                                    </div>
+                                    <div class="strength-item flex items-start space-x-4">
+                                        <i class="fa-solid fa-rocket text-3xl text-amber-500 mt-1"></i>
+                                        <div class="strength-content">
+                                            <h4 class="font-semibold text-lg text-zinc-100">Innovación y Creatividad</h4>
+                                            <p class="text-zinc-300">Apasionado por encontrar nuevas formas de abordar desafíos.</p>
+                                        </div>
+                                    </div>
+                                    <div class="strength-item flex items-start space-x-4">
+                                        <i class="fa-solid fa-puzzle-piece text-3xl text-amber-500 mt-1"></i>
+                                        <div class="strength-content">
+                                            <h4 class="font-semibold text-lg text-zinc-100">Solución de Problemas</h4>
+                                            <p class="text-zinc-300">Capacidad para analizar problemas y desarrollar soluciones efectivas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Columna de Información Adicional -->
+                        <div class="about-info grid md:grid-cols-2 gap-6">
+                            <!-- Info Personal -->
+                            <div class="info-card bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
+                                <h3 class="text-xl font-semibold mb-4 flex items-center text-zinc-100"><i class="fa-solid fa-user mr-3 text-amber-500"></i> Informacion Personal</h3>
+                                <ul class="personal-info space-y-2 text-zinc-200">
+                                    <li class="flex items-center"><i class="fa-solid fa-phone w-5 text-center mr-2 text-zinc-400"></i><strong>Celular:</strong><span class="ml-2">(+593) 994960278</span></li>
+                                    <li class="flex items-center"><i class="fa-solid fa-envelope w-5 text-center mr-2 text-zinc-400"></i><strong>Correo:</strong><span class="ml-2">teranrk@hotmail.com</span></li>
+                                    <li class="flex items-center"><i class="fa-solid fa-location-dot w-5 text-center mr-2 text-zinc-400"></i><strong>Ubicacion:</strong><span class="ml-2">Guayaquil, Ecuador</span></li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Intereses (Se mantienen como placeholder) -->
+                            <div class="info-card bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
+                                <h3 class="text-xl font-semibold mb-4 flex items-center text-zinc-100"><i class="fa-solid fa-heart mr-3 text-amber-500"></i> Intereses</h3>
+                                <div class="interests-grid grid grid-cols-2 gap-x-4 gap-y-3">
+                                    <div class="interest-item flex items-center text-zinc-200"><i class="fa-solid fa-gamepad mr-2 text-amber-400"></i><span>Gaming</span></div>
+                                    <div class="interest-item flex items-center text-zinc-200"><i class="fa-solid fa-headphones mr-2 text-amber-400"></i><span>Musica</span></div>
+                                    <div class="interest-item flex items-center text-zinc-200"><i class="fa-solid fa-plane mr-2 text-amber-400"></i><span>Viajes</span></div>
+                                    <div class="interest-item flex items-center text-zinc-200"><i class="fa-solid fa-person-hiking mr-2 text-amber-400"></i><span>Deporte</span></div>
+                                </div>
+                            </div>
+
+                            <!-- Habilidades Profesionales (Se mantienen como placeholder) -->
+                            <div class="info-card bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600 md:col-span-2">
+                                <h3 class="text-xl font-semibold mb-4 flex items-center text-zinc-100"><i class="fa-solid fa-user-tie mr-3 text-amber-500"></i> Habilidades Profesionales</h3>
+                                <div class="prof-grid grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-3">
+                                    <div class="prof-skill-item flex items-center text-zinc-200"><i class="fa-solid fa-comments prof-icon mr-2 text-amber-400"></i><span>Comunicación</span></div>
+                                    <div class="prof-skill-item flex items-center text-zinc-200"><i class="fa-solid fa-users prof-icon mr-2 text-amber-400"></i><span>Trabajo en Equipo</span></div>
+                                    <div class="prof-skill-item flex items-center text-zinc-200"><i class="fa-solid fa-lightbulb prof-icon mr-2 text-amber-400"></i><span>Creatividad</span></div>
+                                    <div class="prof-skill-item flex items-center text-zinc-200"><i class="fa-solid fa-trophy prof-icon mr-2 text-amber-400"></i><span>Dedicación</span></div>
+                                    <div class="prof-skill-item flex items-center text-zinc-200"><i class="fa-solid fa-puzzle-piece prof-icon mr-2 text-amber-400"></i><span>Solución de Problemas</span></div>
+                                    <div class="prof-skill-item flex items-center text-zinc-200"><i class="fa-solid fa-clock prof-icon mr-2 text-amber-400"></i><span>Manejo de Tiempo</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+        
+                <!-- SECCION SKILLS -->
+                <section class="skills mb-20 scroll-mt-20" id="skills">
+                    <h2 class="text-3xl font-bold mb-8 text-amber-400 uppercase tracking-widest">Habilidades Técnicas</h2>
+        
+                    <div class="skills-container grid grid-cols-1 md:grid-cols-2 gap-8">
+                        
+                        <!-- Columna 1: Lenguajes / Frameworks -->
+                        <div class="skills-box space-y-8">
+                            <div class="p-6 bg-zinc-700 rounded-lg shadow-lg border border-zinc-600">
+                                <h4 class="text-2xl font-semibold mb-4 text-amber-400">Lenguajes</h4>
+                                <div class="tech-grid grid grid-cols-2 gap-4">
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-brands fa-java text-3xl text-orange-400"></i><span class="text-zinc-200">Java</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-brands fa-js text-3xl text-yellow-400"></i><span class="text-zinc-200">JavaScript</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-brands fa-python text-3xl text-blue-400"></i><span class="text-zinc-200">Python</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-solid fa-database text-3xl text-gray-400"></i><span class="text-zinc-200">SQL</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-brands fa-html5 text-3xl text-orange-500"></i><span class="text-zinc-200">HTML</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-brands fa-css3-alt text-3xl text-blue-500"></i><span class="text-zinc-200">CSS</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-brands fa-android text-3xl" style="color: #63E6BE;"></i><span class="text-zinc-200">Kotlin</span></div>
+                                </div>
+                            </div>
+                            <div class="p-6 bg-zinc-700 rounded-lg shadow-lg border border-zinc-600">
+                                <h4 class="text-2xl font-semibold mb-4 text-amber-400">Frameworks y Librerias</h4>
+                                <div class="tech-grid grid grid-cols-2 gap-4">
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-brands fa-react text-3xl text-cyan-400"></i><span class="text-zinc-200">React</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-solid fa-leaf text-3xl text-green-500"></i><span class="text-zinc-200">Spring Boot</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-brands fa-node-js text-3xl text-green-500"></i><span class="text-zinc-200">Node.js</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-solid fa-server text-3xl text-gray-300"></i><span class="text-zinc-200">Next.js</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-solid fa-server text-3xl text-green-400"></i><span class="text-zinc-200">FastAPI</span></div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Columna 2: DB y Herramientas / Formación -->
+                        <div class="skills-box space-y-8">
+                            <div class="p-6 bg-zinc-700 rounded-lg shadow-lg border border-zinc-600">
+                                <h4 class="text-2xl font-semibold mb-4 text-amber-400">Base de Datos y Herramientas</h4>
+                                <div class="tech-grid grid grid-cols-2 gap-4">
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-solid fa-database text-3xl text-blue-700"></i><span class="text-zinc-200">MySQL</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-solid fa-database text-3xl text-blue-500"></i><span class="text-zinc-200">PostgreSQL</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-solid fa-database text-3xl text-red-500"></i><span class="text-zinc-200">Oracle</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-solid fa-chart-simple text-3xl text-yellow-500"></i><span class="text-zinc-200">Power BI</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-brands fa-git-alt text-3xl text-red-600"></i><span class="text-zinc-200">Git/GitHub</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-solid fa-file-excel text-3xl text-green-700"></i><span class="text-zinc-200">Excel</span></div>
+                                    <div class="skill-item flex items-center space-x-3"><i class="fa-solid fa-wand-magic-sparkles text-3xl text-blue-400"></i><span class="text-zinc-200">Adobe Photoshop</span></div>
+                                </div>
+                            </div>
+                            <div class="p-6 bg-zinc-700 rounded-lg shadow-lg border border-zinc-600">
+                                <h4 class="text-2xl font-semibold mb-4 text-amber-400">Formación Complementaria</h4>
+                                <div class="tech-grid grid grid-cols-1 gap-4">
+                                    <div class="skill-item flex items-start space-x-3">
+                                        <i class="fa-solid fa-certificate text-3xl text-amber-400"></i>
+                                        <div>
+                                            <span class="text-zinc-200">Curso en línea sobre desarrollo de interfaces graficas</span>
+                                            <span class="block text-zinc-400 text-sm">2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+        
+                <!-- SECCION CURRICULUM -->
+                <section id="curriculum" class="curriculum mb-20 scroll-mt-20">
+                    <h1 class="text-3xl font-bold mb-8 text-amber-400 uppercase tracking-widest">Currículum</h1>
+                    
+                    <div class="w-full">
+                        <!-- Educación -->
+                        <h2 class="text-2xl font-semibold mb-6 text-zinc-100">Educación</h2>
+                        <div class="relative"> <!-- Contenedor para la línea de tiempo -->
+                            <div class="timeline-item">
+                                <div class="timeline-connector"></div>
+                                <div class="timeline-dot"></div>
+                                <div class="item-content bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
+                                    <h2 class="text-xl font-semibold text-zinc-100">Ingeniería en Sistemas de Información</h2>
+                                    <div class="institucion flex items-center my-2 text-zinc-300">
+                                        <img src="img/ug.jpg" alt="Logo Universidad de Guayaquil" class="w-8 h-8 mr-2 rounded-full">
+                                        <span class="casa font-medium">Universidad de Guayaquil</span>
+                                    </div>
+                                    <span class="fecha text-sm text-amber-500 font-semibold">2020 - 2025</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-connector"></div>
+                                <div class="timeline-dot"></div>
+                                <div class="item-content bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
+                                    <h2 class="text-xl font-semibold text-zinc-100">Bachiller en Ciencias</h2>
+                                    <div class="institucion flex items-center my-2 text-zinc-300">
+                                        <img src="img/lalama.png" alt="Logo Liceo Naval" class="w-8 h-8 mr-2 rounded-full">
+                                        <span class="casa font-medium">Unidad Educativa Liceo Naval "Cmdt. Rafael Andrade Lalama"</span>
+                                    </div>
+                                    <span class="fecha text-sm text-amber-500 font-semibold">2013 - 2018</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Experiencia -->
+                        <h2 class="text-2xl font-semibold mt-12 mb-6 text-zinc-100">Experiencia Laboral</h2>
+                        <div class="relative"> <!-- Contenedor para la línea de tiempo -->
+                            <div class="timeline-item">
+                                <div class="timeline-connector"></div>
+                                <div class="timeline-dot"></div>
+                                <div class="item-content bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
+                                    <h4 class="text-xl font-semibold text-zinc-100">Auxiliar Técnico de la Coordinación de Informática</h4>
+                                    <div class="institucion flex items-center my-2 text-zinc-300">
+                                        <img src="img/gobierno_del_estado_de_colima_logo.jpeg" alt="Logo Estado de Colima" class="w-8 h-8 mr-2 rounded-full">
+                                        <span class="casa font-medium">Gobierno del Estado de Colima - México</span>
+                                    </div>
+                                    <span class="fecha text-sm text-amber-500 font-semibold">Julio 2025 - Noviembre 2025</span>
+                                    <ul class="list-disc list-outside pl-5 mt-3 space-y-1 text-zinc-200">
+                                        <li>Implementé y mantuvé el entorno de servidor de aplicaciones GlassFish 4.1 (Java EE).</li>
+                                        <li>Establecí la conexión segura con Oracle 11g, administrando la configuración JDBC.</li>
+                                        <li>Desplegué y actualicé los módulos del sistema (Enterprise/Web Applications).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-connector"></div>
+                                <div class="timeline-dot"></div>
+                                <div class="item-content bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
+                                    <h4 class="text-xl font-semibold text-zinc-100">Desarrollador Front-End</h4>
+                                    <div class="institucion flex items-center my-2 text-zinc-300">
+                                        <img src="img/caminando.png" alt="Logo Fundación Caminando Juntos" class="w-8 h-8 mr-2 rounded-full">
+                                        <span class="casa font-medium">Fundacion caminando juntos por el cambio</span>
+                                    </div>
+                                    <span class="fecha text-sm text-amber-500 font-semibold">Noviembre 2024 - Febrero 2025</span>
+                                    <ul class="list-disc list-outside pl-5 mt-3 space-y-1 text-zinc-200">
+                                        <li>Desarrollo del módulo frontend del sistema de registro clínico, empleando Spring Boot y Thymeleaf.</li>
+                                        <li>Diseño e implementación de interfaces funcionales para la gestión y visualización de datos de pacientes.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-connector"></div>
+                                <div class="timeline-dot"></div>
+                                <div class="item-content bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
+                                    <h4 class="text-xl font-semibold text-zinc-100">Pasante Analista de Datos</h4>
+                                    <div class="institucion flex items-center my-2 text-zinc-300">
+                                        <img src="img/ug.jpg" alt="Logo Universidad de Guayaquil" class="w-8 h-8 mr-2 rounded-full">
+                                        <span class="casa font-medium">Universidad de Guayaquil</span>
+                                    </div>
+                                    <span class="fecha text-sm text-amber-500 font-semibold">Julio 2024 - Septiembre 2024</span>
+                                    <p class="mt-3 text-zinc-200">Colaboración en el departamento de secretaría General de la Facultad Industrial, encargado en el levantamiento de información de documentos antiguos a digital.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <!-- SECCION PORTFOLIO (Se mantiene como placeholder) -->
+                <section id="portfolio" class="portfolio mb-20 scroll-mt-20">
+                    <h1 class="text-3xl font-bold mb-8 text-amber-400 uppercase tracking-widest">Portafolio</h1>
+                    
+                    <div class="galeria grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+                        <a href="https://www.realleadermex.com/" target="_blank" rel="noopener noreferrer" 
+                        class="proyecto group relative block rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 border-2 border-zinc-700 hover:border-amber-500">
+                            <img src="img/realeader.png" alt="RealLeader Project" class="w-full h-64 object-cover">
+                            <div class="overlay absolute inset-0 bg-amber-900 bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                                <h3 class="text-2xl font-bold text-white mb-2">RealLeader Official Mexico</h3>
+                                <p class="text-amber-100 text-sm">
+                                    E-commerce y catálogo digital para marca de gimnasios. Diseño moderno con secciones dinámicas y alto rendimiento.
+                                </p>
+                            </div>
+                        </a>
+
+                        <a href="https://veterinaria1-livid.vercel.app/" target="_blank" rel="noopener noreferrer" 
+                        class="proyecto group relative block rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 border-2 border-zinc-700 hover:border-amber-500">
+                            <img src="img/saludpet.png" alt="SaludPet Project" class="w-full h-64 object-cover">
+                            <div class="overlay absolute inset-0 bg-amber-900 bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                                <h3 class="text-2xl font-bold text-white mb-2">Sistema SaludPet</h3>
+                                <p class="text-amber-100 text-sm">
+                                    Plataforma de gestión veterinaria con historial médico digital, tienda en línea y administración de servicios.
+                                </p>
+                            </div>
+                        </a>
+
+                        <a href="https://restaurante1-beryl.vercel.app/" target="_blank" rel="noopener noreferrer"
+                            class="proyecto group relative block rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 border-2 border-zinc-700 hover:border-amber-500">
+                            <img src="img/rest.png" alt="Restaurant Project" class="w-full h-64 object-cover">
+                            <div class="overlay absolute inset-0 bg-amber-900 bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                                <h3 class="text-2xl font-bold text-white mb-2">Restaurante FullStack</h3>
+                                <p class="text-amber-100 text-sm">
+                                    Sistema integral de reservas y pedidos. Panel administrativo con base de datos en tiempo real (Supabase + Prisma).
+                                </p>
+                            </div>
+                        </a>
+
+                        <a href="https://inmueble1.vercel.app/" target="_blank" rel="noopener noreferrer"
+                            class="proyecto group relative block rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 border-2 border-zinc-700 hover:border-amber-500">
+                            <img src="img/inmueble.png" alt="Real Estate Project" class="w-full h-64 object-cover">
+                            <div class="overlay absolute inset-0 bg-amber-900 bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                                <h3 class="text-2xl font-bold text-white mb-2">Portal Inmobiliario</h3>
+                                <p class="text-amber-100 text-sm">
+                                    Plataforma para renta y venta de propiedades. Incluye filtros de búsqueda avanzados, galería interactiva y contacto.
+                                </p>
+                            </div>
+                        </a>
+
+                    </div>
+                </section>
+        
+        
+                <!-- SECCION CONTACTO -->
+                <section id="contacto" class="contacto mb-20 scroll-mt-20">
+                    <h1 class="text-3xl font-bold mb-8 text-amber-400 uppercase tracking-widest">Contacto</h1>
+                    <div class="bg-zinc-700 p-8 rounded-lg shadow-lg border border-zinc-600">
+                        <form id="contactForm" action="https://formspree.io/f/xnnlndpd" method="POST" class="space-y-6">
+                            
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-zinc-300">Nombre:</label>
+                                <input type="text" id="name" name="name" placeholder="Tú Nombre" required
+                                       class="mt-1 block w-full px-4 py-3 bg-zinc-600 border border-zinc-500 rounded-md shadow-sm text-zinc-100 focus:outline-none focus:ring-amber-500 focus:border-amber-500 placeholder-zinc-400">
+                            </div>
+        
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-zinc-300">Número telefónico:</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Número telefónico" required
+                                       class="mt-1 block w-full px-4 py-3 bg-zinc-600 border border-zinc-500 rounded-md shadow-sm text-zinc-100 focus:outline-none focus:ring-amber-500 focus:border-amber-500 placeholder-zinc-400">
+                            </div>
+        
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-zinc-300">Correo Electrónico:</label>
+                                <input type="email" id="email" name="email" placeholder="Dirección de correo" required
+                                       class="mt-1 block w-full px-4 py-3 bg-zinc-600 border border-zinc-500 rounded-md shadow-sm text-zinc-100 focus:outline-none focus:ring-amber-500 focus:border-amber-500 placeholder-zinc-400">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-zinc-300">Tema:</label>
+                                <input type="text" id="subject" name="subject" placeholder="Tema" required
+                                       class="mt-1 block w-full px-4 py-3 bg-zinc-600 border border-zinc-500 rounded-md shadow-sm text-zinc-100 focus:outline-none focus:ring-amber-500 focus:border-amber-500 placeholder-zinc-400">
+                            </div>
+        
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-zinc-300">Mensaje:</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Mensaje" required
+                                          class="mt-1 block w-full px-4 py-3 bg-zinc-600 border border-zinc-500 rounded-md shadow-sm text-zinc-100 focus:outline-none focus:ring-amber-500 focus:border-amber-500 placeholder-zinc-400"></textarea>
+                            </div>
+        
+                            <button type="submit" aria-label="Enviar Mensaje"
+                                    class="btn-overlay w-full flex justify-center py-3 px-6 border border-transparent rounded-full shadow-lg text-base font-medium text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-all duration-300">
+                                Enviar Mensaje <i class="fa-solid fa-paper-plane ml-2 mt-1"></i>
+                                <span class="overlay"></span>
+                            </button>
+                        </form>
+        
+                        <!-- Mensaje de confirmación -->
+                        <div id="confirmationMessage" style="display:none;" role="status" aria-live="polite" 
+                             class="mt-6 p-4 text-center text-green-300 bg-green-900/50 rounded-md border border-green-700">
+                             ¡Gracias por tu mensaje! Te responderé pronto.
+                        </div>
+                    </div>
+                </section>
+        
+        
+                <!-- FOOTER -->
+                <footer class="text-zinc-400 py-12 text-center">
+                    <p>© 2025 KEVIN JOHAO TERAN RODRIGUEZ. All rights reserved.</p>
+                </footer>
+
+            </main>
+        </div>
+    </div>
+
+
+    <!-- SCRIPT -->
+    <script>
+        // --- Lógica del Menú Móvil ---
+        const navMobile = document.getElementById('nav-mobile');
+        const menuIcon = document.getElementById('menuIcon');
+
+        function mostrarOcultarMenu() {
+            navMobile.classList.toggle('hidden');
+            // Cambiar el ícono
+            if (navMobile.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            }
+        }
+
+        // Cierra el menú móvil al hacer clic en un enlace
+        function seleccionar() {
+            navMobile.classList.add('hidden');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+
+        // --- Lógica del Formulario (Formspree) ---
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById('contactForm');
+            const confirmationMessage = document.getElementById('confirmationMessage');
+            
+            form.addEventListener('submit', function (e) {
+                e.preventDefault(); // Evita el envío tradicional
+                
+                const formData = new FormData(form);
+                
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Muestra el mensaje de confirmación
+                        confirmationMessage.style.display = 'block';
+                        // Limpia el formulario
+                        form.reset();
+                        // Oculta el mensaje después de 5 segundos
+                        setTimeout(() => {
+                            confirmationMessage.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        // Maneja errores si es necesario
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                console.error(data["errors"].map(error => error["message"]).join(", "));
+                                // No usamos alert()
+                                console.error("Hubo un error, por favor revisa los campos.");
+                            } else {
+                                // No usamos alert()
+                                console.error('Hubo un error al enviar el formulario.');
+                            }
+                        })
+                    }
+                })
+                .catch(error => {
+                    // No usamos alert()
+                    console.error('Hubo un error en la red.', error);
+                });
+            });
+        });
+
+        // --- Lógica de ScrollSpy (Resaltar enlace activo) ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll('main section[id]');
+            const navLinks = document.querySelectorAll('#nav ul li a');
+            const mobileNavLinks = document.querySelectorAll('#nav-mobile ul li a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        
+                        // Actualizar enlaces de escritorio
+                        navLinks.forEach(link => {
+                            const linkParent = link.parentElement;
+                            linkParent.classList.remove('nav-active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                linkParent.classList.add('nav-active');
+                            }
+                        });
+                        
+                        // Actualizar enlaces móviles
+                        mobileNavLinks.forEach(link => {
+                            link.classList.remove('nav-active'); // Asumiendo que 'nav-active' se aplica al enlace
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('nav-active');
+                            }
+                        });
+                    }
+                });
+            }, { 
+                rootMargin: '-20% 0px -50% 0px', // Ajustado para el layout de scroll
+                threshold: 0 
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
