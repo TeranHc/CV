@@ -138,10 +138,14 @@
     <div class="container mx-auto max-w-7xl px-4">
         <div class="lg:flex lg:gap-16">
 
-            <!-- COLUMNA IZQUIERDA (FIJA) -->
-            <header id="inicio" class="lg:w-1/3 lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-between lg:py-16 py-10">
+            <!-- COLUMNA IZQUIERDA -->
+            <header id="inicio" class="lg:w-1/3 lg:py-16 py-10">
                 <!-- Info Principal -->
                 <div>
+                    <!-- ##### FOTO DE PERFIL (MOBILE) ##### -->
+                    <img class="rounded-full w-40 h-40 mb-4 shadow-lg border-4 border-zinc-700 mx-auto object-cover lg:hidden" src="img/yo.jpeg" alt="Foto de Kevin Teran"
+                         onerror="this.onerror=null;this.src='https://placehold.co/160x160/3f3f46/f59e0b?text=KT';">
+
                     <!-- Botón de menú móvil -->
                     <div class="flex justify-between items-center lg:hidden mb-6">
                         <div class="logo">
@@ -154,8 +158,7 @@
 
                     <!-- Info para Desktop -->
                     <div class="hidden lg:block">
-                        <!-- ##### FOTO DE PERFIL (DESKTOP) ##### -->
-                        
+                        <!-- FOTO MOVIDA A "SOBRE MI" PARA DESKTOP -->
                         
                         <h1 class="text-4xl md:text-4xl font-bold text-amber-400">KEVIN JOHAO TERAN RODRIGUEZ</h1>
                         <h2 class="text-xl md:text-2xl text-zinc-100 mt-2">DESARROLLADOR WEB Y ANALISTA DE DATOS</h2>
@@ -215,7 +218,6 @@
                             <i class="fab fa-github text-2xl"></i>
                         </a>
 
-
                     </div>
 
                     <!-- Nav Móvil (Contenedor) -->
@@ -231,10 +233,10 @@
                 </div>
 
                 <!-- Footer de la Columna Izquierda -->
-                <div>
+                <div class="mt-8 lg:mt-8"> <!-- Se ajustó el margen superior -->
                     <!-- Botón CV -->
                     <a href="pdfs/CV.pdf" download="CV.pdf" target="_blank"
-                        class="btn-overlay w-full inline-block mt-8 bg-amber-600 text-white text-center font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-amber-400/30 hover:bg-amber-700 transition-all duration-300 transform hover:-translate-y-1">
+                        class="btn-overlay w-full inline-block bg-amber-600 text-white text-center font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-amber-400/30 hover:bg-amber-700 transition-all duration-300 transform hover:-translate-y-1">
                         Descargar CV <i class="fa-solid fa-download ml-2"></i>
                         <span class="overlay"></span>
                     </a>
@@ -273,8 +275,9 @@
                                 
                                 <!-- Contenedor Flex para Foto + Texto -->
                                 <div class="flex flex-col md:flex-row md:items-start md:gap-8">
-                                    <!-- FOTO -->
-                                    <img class="rounded-full w-40 h-40 md:w-56 md:h-56 mb-6 md:mb-0 shadow-lg border-4 border-zinc-700 mx-auto md:mx-0 flex-shrink-0 object-cover" src="img/yo.jpeg" alt="Foto de Kevin Teran"
+                                    
+                                    <!-- FOTO (AHORA OCULTA EN MÓVIL) -->
+                                    <img class="hidden md:block rounded-full md:w-56 md:h-56 shadow-lg border-4 border-zinc-700 md:mx-0 flex-shrink-0 object-cover" src="img/yo.jpeg" alt="Foto de Kevin Teran"
                                          onerror="this.onerror=null;this.src='https://placehold.co/224x224/3f3f46/f59e0b?text=KT';">
                                     
                                     <!-- TEXTO INTRO -->
@@ -444,7 +447,7 @@
                                 <div class="item-content bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
                                     <h2 class="text-xl font-semibold text-zinc-100">Ingeniería en Sistemas de Información</h2>
                                     <div class="institucion flex items-center my-2 text-zinc-300">
-                                        <img src="img/ug.jpg" alt="Logo Universidad de Guayaquil" class="w-8 h-8 mr-2 rounded-full">
+                                        <img src="img/ug.jpg" alt="Logo Universidad de Guayaquil" class="w-8 h-8 mr-2 rounded-full object-cover">
                                         <span class="casa font-medium">Universidad de Guayaquil</span>
                                     </div>
                                     <span class="fecha text-sm text-amber-500 font-semibold">2020 - 2025</span>
@@ -456,7 +459,7 @@
                                 <div class="item-content bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
                                     <h2 class="text-xl font-semibold text-zinc-100">Bachiller en Ciencias</h2>
                                     <div class="institucion flex items-center my-2 text-zinc-300">
-                                        <img src="img/lalama.png" alt="Logo Liceo Naval" class="w-8 h-8 mr-2 rounded-full">
+                                        <img src="img/lalama.png" alt="Logo Liceo Naval" class="w-8 h-8 mr-2 rounded-full object-cover">
                                         <span class="casa font-medium">Unidad Educativa Liceo Naval "Cmdt. Rafael Andrade Lalama"</span>
                                     </div>
                                     <span class="fecha text-sm text-amber-500 font-semibold">2013 - 2018</span>
@@ -473,7 +476,7 @@
                                 <div class="item-content bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
                                     <h4 class="text-xl font-semibold text-zinc-100">Auxiliar Técnico de la Coordinación de Informática</h4>
                                     <div class="institucion flex items-center my-2 text-zinc-300">
-                                        <img src="img/gobierno_del_estado_de_colima_logo.jpeg" alt="Logo Estado de Colima" class="w-8 h-8 mr-2 rounded-full">
+                                        <img src="img/gobierno_del_estado_de_colima_logo.jpeg" alt="Logo Estado de Colima" class="w-8 h-8 mr-2 rounded-full object-cover">
                                         <span class="casa font-medium">Gobierno del Estado de Colima - México</span>
                                     </div>
                                     <span class="fecha text-sm text-amber-500 font-semibold">Julio 2025 - Noviembre 2025</span>
@@ -490,7 +493,7 @@
                                 <div class="item-content bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
                                     <h4 class="text-xl font-semibold text-zinc-100">Desarrollador Front-End</h4>
                                     <div class="institucion flex items-center my-2 text-zinc-300">
-                                        <img src="img/caminando.png" alt="Logo Fundación Caminando Juntos" class="w-8 h-8 mr-2 rounded-full">
+                                        <img src="img/caminando.png" alt="Logo Fundación Caminando Juntos" class="w-8 h-8 mr-2 rounded-full object-cover">
                                         <span class="casa font-medium">Fundacion caminando juntos por el cambio</span>
                                     </div>
                                     <span class="fecha text-sm text-amber-500 font-semibold">Noviembre 2024 - Febrero 2025</span>
@@ -506,7 +509,7 @@
                                 <div class="item-content bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
                                     <h4 class="text-xl font-semibold text-zinc-100">Pasante Analista de Datos</h4>
                                     <div class="institucion flex items-center my-2 text-zinc-300">
-                                        <img src="img/ug.jpg" alt="Logo Universidad de Guayaquil" class="w-8 h-8 mr-2 rounded-full">
+                                        <img src="img/ug.jpg" alt="Logo Universidad de Guayaquil" class="w-8 h-8 mr-2 rounded-full object-cover">
                                         <span class="casa font-medium">Universidad de Guayaquil</span>
                                     </div>
                                     <span class="fecha text-sm text-amber-500 font-semibold">Julio 2024 - Septiembre 2024</span>
@@ -517,7 +520,7 @@
                     </div>
                 </section>
         
-                <!-- SECCION PORTFOLIO (Se mantiene como placeholder) -->
+                <!-- SECCION PORTFOLIO -->
                 <section id="portfolio" class="portfolio mb-20 scroll-mt-20">
                     <h1 class="text-3xl font-bold mb-8 text-amber-400 uppercase tracking-widest">Portafolio</h1>
                     
@@ -525,7 +528,8 @@
         
                         <a href="https://www.realleadermex.com/" target="_blank" rel="noopener noreferrer" 
                         class="proyecto group relative block rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 border-2 border-zinc-700 hover:border-amber-500">
-                            <img src="img/realeader.png" alt="RealLeader Project" class="w-full h-64 object-cover">
+                            <img src="img/realeader.png" alt="RealLeader Project" class="w-full h-64 object-cover"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/3f3f46/f59e0b?text=RealLeader';">
                             <div class="overlay absolute inset-0 bg-amber-900 bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
                                 <h3 class="text-2xl font-bold text-white mb-2">RealLeader Official Mexico</h3>
                                 <p class="text-amber-100 text-sm">
@@ -536,7 +540,8 @@
 
                         <a href="https://veterinaria1-livid.vercel.app/" target="_blank" rel="noopener noreferrer" 
                         class="proyecto group relative block rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 border-2 border-zinc-700 hover:border-amber-500">
-                            <img src="img/saludpet.png" alt="SaludPet Project" class="w-full h-64 object-cover">
+                            <img src="img/saludpet.png" alt="SaludPet Project" class="w-full h-64 object-cover"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/3f3f46/f59e0b?text=SaludPet';">
                             <div class="overlay absolute inset-0 bg-amber-900 bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
                                 <h3 class="text-2xl font-bold text-white mb-2">Sistema SaludPet</h3>
                                 <p class="text-amber-100 text-sm">
@@ -547,7 +552,8 @@
 
                         <a href="https://restaurante1-beryl.vercel.app/" target="_blank" rel="noopener noreferrer"
                             class="proyecto group relative block rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 border-2 border-zinc-700 hover:border-amber-500">
-                            <img src="img/rest.png" alt="Restaurant Project" class="w-full h-64 object-cover">
+                            <img src="img/rest.png" alt="Restaurant Project" class="w-full h-64 object-cover"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/3f3f46/f59e0b?text=Restaurante';">
                             <div class="overlay absolute inset-0 bg-amber-900 bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
                                 <h3 class="text-2xl font-bold text-white mb-2">Restaurante FullStack</h3>
                                 <p class="text-amber-100 text-sm">
@@ -556,9 +562,10 @@
                             </div>
                         </a>
 
-                        <a href="https://inmueble1.vercel.app/" target="_blank" rel="noopener noreferrer"
+                        <a href="httpsM://inmueble1.vercel.app/" target="_blank" rel="noopener noreferrer"
                             class="proyecto group relative block rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 border-2 border-zinc-700 hover:border-amber-500">
-                            <img src="img/inmueble.png" alt="Real Estate Project" class="w-full h-64 object-cover">
+                            <img src="img/inmueble.png" alt="Real Estate Project" class="w-full h-64 object-cover"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/3f3f46/f59e0b?text=Inmobiliaria';">
                             <div class="overlay absolute inset-0 bg-amber-900 bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
                                 <h3 class="text-2xl font-bold text-white mb-2">Portal Inmobiliario</h3>
                                 <p class="text-amber-100 text-sm">
@@ -736,7 +743,8 @@
                     }
                 });
             }, { 
-                rootMargin: '-20% 0px -50% 0px', // Ajustado para el layout de scroll
+                // Ajustado para scroll de página completa
+                rootMargin: '0px 0px -40% 0px', 
                 threshold: 0 
             });
 
