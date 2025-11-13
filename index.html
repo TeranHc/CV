@@ -155,8 +155,7 @@
                     <!-- Info para Desktop -->
                     <div class="hidden lg:block">
                         <!-- ##### FOTO DE PERFIL (DESKTOP) ##### -->
-                        <img class="rounded-full w-56 h-56 mb-6 shadow-lg border-4 border-zinc-700"  src="img/yo.jpeg" alt="Foto de Kevin Teran"
-                             onerror="this.onerror=null;this.src='https://placehold.co/128x128/3f3f46/f59e0b?text=KT';">
+                        
                         
                         <h1 class="text-4xl md:text-4xl font-bold text-amber-400">KEVIN JOHAO TERAN RODRIGUEZ</h1>
                         <h2 class="text-xl md:text-2xl text-zinc-100 mt-2">DESARROLLADOR WEB Y ANALISTA DE DATOS</h2>
@@ -204,21 +203,19 @@
 
                     <!-- Redes Sociales (Desktop) -->
                     <div class="redes hidden lg:flex justify-start space-x-4 mt-8">
-                        <a href="#" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.linkedin.com/in/kevin-johao-terán-rodríguez-829938318" target="_blank" rel="noopener noreferrer"
                             aria-label="Perfil de LinkedIn"
-                            class="w-10 h-10 bg-zinc-700 rounded-full flex items-center justify-center text-zinc-300 hover:bg-amber-500 hover:text-white transition-all duration-300 transform hover:scale-110">
-                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                            class="w-12 h-12 bg-zinc-700 rounded-full flex items-center justify-center text-zinc-300 hover:bg-amber-500 hover:text-white transition-all duration-300 transform hover:scale-110">
+                            <i class="fa-brands fa-linkedin-in text-2xl"></i>
                         </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer"
+
+                        <a href="https://github.com/TeranHc" target="_blank" rel="noopener noreferrer"
                             aria-label="Perfil de GitHub"
-                            class="w-10 h-10 bg-zinc-700 rounded-full flex items-center justify-center text-zinc-300 hover:bg-amber-500 hover:text-white transition-all duration-300 transform hover:scale-110">
-                            <i class="fab fa-github text-lg"></i>
+                            class="w-12 h-12 bg-zinc-700 rounded-full flex items-center justify-center text-zinc-300 hover:bg-amber-500 hover:text-white transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-github text-2xl"></i>
                         </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer"
-                            aria-label="Portafolio"
-                            class="w-10 h-10 bg-zinc-700 rounded-full flex items-center justify-center text-zinc-300 hover:bg-amber-500 hover:text-white transition-all duration-300 transform hover:scale-110">
-                            <i class="fa-solid fa-briefcase text-lg"></i>
-                        </a>
+
+
                     </div>
 
                     <!-- Nav Móvil (Contenedor) -->
@@ -271,22 +268,32 @@
                     <div class="about-content grid grid-cols-1 gap-8">
                         <!-- Columna de Texto Principal -->
                         <div class="about-text">
+                            
                             <div class="bg-zinc-700 p-8 rounded-lg shadow-lg border border-zinc-600">
-                                <div class="intro-text text-zinc-200 space-y-4">
-                                    <p class="text-xl">
-                                        <span class="font-semibold text-amber-400">Hola, Soy KEVIN JOHAO TERAN RODRIGUEZ.</span>
-                                        Con estudio de Ingeniería en Sistemas de Información, con sólida preparación en desarrollo web, análisis de
-                                        datos y optimización de procesos. Me caracterizo por ser una persona proactiva, analítica y orientada a
-                                        resultados, con experiencia práctica en el diseño de aplicaciones web y en el uso de datos para apoyar la
-                                        toma de decisiones.
-                                    </p>
-                                    <p>
-                                        Busco aplicar mis conocimientos para desarrollar soluciones tecnológicas que mejoren
-                                        la eficiencia y aporten valor a las organizaciones.
-                                    </p>
+                                
+                                <!-- Contenedor Flex para Foto + Texto -->
+                                <div class="flex flex-col md:flex-row md:items-start md:gap-8">
+                                    <!-- FOTO -->
+                                    <img class="rounded-full w-40 h-40 md:w-56 md:h-56 mb-6 md:mb-0 shadow-lg border-4 border-zinc-700 mx-auto md:mx-0 flex-shrink-0 object-cover" src="img/yo.jpeg" alt="Foto de Kevin Teran"
+                                         onerror="this.onerror=null;this.src='https://placehold.co/224x224/3f3f46/f59e0b?text=KT';">
+                                    
+                                    <!-- TEXTO INTRO -->
+                                    <div class="intro-text text-zinc-200 space-y-4">
+                                        <p class="text-xl">
+                                            <span class="font-semibold text-amber-400">Hola, Soy KEVIN JOHAO TERAN RODRIGUEZ.</span>
+                                            Con estudio de Ingeniería en Sistemas de Información, con sólida preparación en desarrollo web, análisis de
+                                            datos y optimización de procesos. Me caracterizo por ser una persona proactiva, analítica y orientada a
+                                            resultados, con experiencia práctica en el diseño de aplicaciones web y en el uso de datos para apoyar la
+                                            toma de decisiones.
+                                        </p>
+                                        <p>
+                                            Busco aplicar mis conocimientos para desarrollar soluciones tecnológicas que mejoren
+                                            la eficiencia y aporten valor a las organizaciones.
+                                        </p>
+                                    </div>
                                 </div>
         
-                                <!-- Fortalezas (Se mantienen como placeholder) -->
+                                <!-- Fortalezas (Van debajo del contenedor flex) -->
                                 <div class="strengths-grid grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
                                     <div class="strength-item flex items-start space-x-4">
                                         <i class="fa-solid fa-medal text-3xl text-amber-500 mt-1"></i>
