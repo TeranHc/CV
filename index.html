@@ -5,17 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Carga de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-        xintegrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Portafolio - Kevin Teran Rodriguez</title>
-    <!-- Favicon -->
     <link rel="icon" href="https://placehold.co/32x32/F59E0B/FFFFFF?text=KT">
     
-    <!-- Configuración de Tailwind y Fuentes -->
     <script>
         tailwind.config = {
             theme: {
@@ -44,7 +40,6 @@
         }
     </script>
     
-    <!-- Estilos personalizados -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -134,19 +129,11 @@
 
 <body class="antialiased bg-zinc-800 text-zinc-200">
 
-    <!-- Contenedor Principal -->
     <div class="container mx-auto max-w-7xl px-4">
         <div class="lg:flex lg:gap-16">
 
-            <!-- COLUMNA IZQUIERDA -->
             <header id="inicio" class="lg:w-1/3 lg:py-16 py-10">
-                <!-- Info Principal -->
                 <div>
-                    <!-- ##### FOTO DE PERFIL (MOBILE) ##### -->
-                    <img class="rounded-full w-40 h-40 mb-4 shadow-lg border-4 border-zinc-700 mx-auto object-cover lg:hidden" src="img/yo.jpeg" alt="Foto de Kevin Teran"
-                         onerror="this.onerror=null;this.src='https://placehold.co/160x160/3f3f46/f59e0b?text=KT';">
-
-                    <!-- Botón de menú móvil -->
                     <div class="flex justify-between items-center lg:hidden mb-6">
                         <div class="logo">
                             <a href="#" class="text-xl font-bold text-amber-400 hover:text-amber-300 transition-colors">KEVIN JOHAO TERAN RODRIGUEZ</a>
@@ -156,10 +143,7 @@
                         </div>
                     </div>
 
-                    <!-- Info para Desktop -->
                     <div class="hidden lg:block">
-                        <!-- FOTO MOVIDA A "SOBRE MI" PARA DESKTOP -->
-                        
                         <h1 class="text-4xl md:text-4xl font-bold text-amber-400">KEVIN JOHAO TERAN RODRIGUEZ</h1>
                         <h2 class="text-xl md:text-2xl text-zinc-100 mt-2">DESARROLLADOR WEB FULL STACK Y ANALISTA DE DATOS</h2>
                         <p class="text-zinc-300 mt-4 max-w-xs">
@@ -168,7 +152,6 @@
                         </p>
                     </div>
 
-                    <!-- Navegación -->
                     <nav id="nav" class="hidden lg:block mt-12">
                         <ul id="nav-menu" class="flex-col space-y-4">
                             <li>
@@ -190,6 +173,12 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="#titulacion" class="nav-link-item nav-link">
+                                    <span class="nav-line"></span>
+                                    <span class="nav-text text-zinc-300 font-semibold uppercase tracking-widest text-sm">Proyecto de Titulación</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="#portfolio" class="nav-link-item nav-link">
                                     <span class="nav-line"></span>
                                     <span class="nav-text text-zinc-300 font-semibold uppercase tracking-widest text-sm">Portafolio</span>
@@ -204,7 +193,6 @@
                         </ul>
                     </nav>
 
-                    <!-- Redes Sociales (Desktop) -->
                     <div class="redes hidden lg:flex justify-start space-x-4 mt-8">
                         <a href="https://www.linkedin.com/in/kevin-johao-terán-rodríguez-829938318" target="_blank" rel="noopener noreferrer"
                             aria-label="Perfil de LinkedIn"
@@ -220,28 +208,24 @@
 
                     </div>
 
-                    <!-- Nav Móvil (Contenedor) -->
                     <nav id="nav-mobile" class="hidden lg:hidden bg-zinc-700 shadow-lg rounded-lg mt-4 border border-zinc-600">
                         <ul class="flex flex-col p-4">
                             <li><a href="#sobremi" onclick="seleccionar()" class="block text-zinc-200 hover:text-amber-400 transition-colors py-2 nav-link-mobile">Sobre Mí</a></li>
                             <li><a href="#skills" onclick="seleccionar()" class="block text-zinc-200 hover:text-amber-400 transition-colors py-2 nav-link-mobile">Habilidades</a></li>
                             <li><a href="#curriculum" onclick="seleccionar()" class="block text-zinc-200 hover:text-amber-400 transition-colors py-2 nav-link-mobile">Currículum</a></li>
+                            <li><a href="#titulacion" onclick="seleccionar()" class="block text-zinc-200 hover:text-amber-400 transition-colors py-2 nav-link-mobile">Proyecto de Titulación</a></li>
                             <li><a href="#portfolio" onclick="seleccionar()" class="block text-zinc-200 hover:text-amber-400 transition-colors py-2 nav-link-mobile">Portafolio</a></li>
                             <li><a href="#contacto" onclick="seleccionar()" class="block text-zinc-200 hover:text-amber-400 transition-colors py-2 nav-link-mobile">Contacto</a></li>
                         </ul>
                     </nav>
                 </div>
 
-                <!-- Footer de la Columna Izquierda -->
-                <div class="mt-8 lg:mt-8"> <!-- Se ajustó el margen superior -->
-                    <!-- Botón CV -->
-                    <a href="pdfs/CV.pdf" download="CV_Terán_Rodríguez_Kevin.pdf" target="_blank"
+                <div class="mt-8 lg:mt-8"> <a href="pdfs/CV.pdf" download="CV_Terán_Rodríguez_Kevin.pdf" target="_blank"
                         class="btn-overlay w-full inline-block bg-amber-600 text-white text-center font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-amber-400/30 hover:bg-amber-700 transition-all duration-300 transform hover:-translate-y-1">
                         Descargar CV <i class="fa-solid fa-download ml-2"></i>
                         <span class="overlay"></span>
                     </a>
                     
-                    <!-- Redes Sociales (Mobile) -->
                     <div class="redes flex lg:hidden justify-center space-x-4 mt-8">
                         <a href="https://www.linkedin.com/in/kevin-johao-terán-rodríguez-829938318" target="_blank" rel="noopener noreferrer"
                             aria-label="Perfil de LinkedIn"
@@ -257,25 +241,19 @@
                 </div>
             </header>
 
-            <!-- COLUMNA DERECHA (SCROLLABLE) -->
             <main class="lg:w-2/3 lg:py-16">
 
-                <!-- SECCION SOBRE MI -->
                 <section id="sobremi" class="sobremi mb-20 scroll-mt-20">
                     <div class="about-content grid grid-cols-1 gap-8">
-                        <!-- Columna de Texto Principal -->
                         <div class="about-text">
                             
                             <div class="bg-zinc-700 p-8 rounded-lg shadow-lg border border-zinc-600">
                                 
-                                <!-- Contenedor Flex para Foto + Texto -->
                                 <div class="flex flex-col md:flex-row md:items-start md:gap-8">
                                     
-                                    <!-- FOTO (AHORA OCULTA EN MÓVIL) -->
                                     <img class="hidden md:block rounded-full md:w-56 md:h-56 shadow-lg border-4 border-zinc-700 md:mx-0 flex-shrink-0 object-cover" src="img/yo.jpeg" alt="Foto de Kevin Teran"
                                          onerror="this.onerror=null;this.src='https://placehold.co/224x224/3f3f46/f59e0b?text=KT';">
                                     
-                                    <!-- TEXTO INTRO -->
                                     <div class="intro-text text-zinc-200 space-y-4">
                                         <p class="text-xl">
                                             <span class="font-semibold text-amber-400">Hola, Soy KEVIN JOHAO TERAN RODRIGUEZ.</span>
@@ -291,7 +269,6 @@
                                     </div>
                                 </div>
         
-                                <!-- Fortalezas (Van debajo del contenedor flex) -->
                                 <div class="strengths-grid grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
                                     <div class="strength-item flex items-start space-x-4">
                                         <i class="fa-solid fa-medal text-3xl text-amber-500 mt-1"></i>
@@ -325,9 +302,7 @@
                             </div>
                         </div>
         
-                        <!-- Columna de Información Adicional -->
                         <div class="about-info grid md:grid-cols-2 gap-6">
-                            <!-- Info Personal -->
                             <div class="info-card bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
                                 <h3 class="text-xl font-semibold mb-4 flex items-center text-zinc-100"><i class="fa-solid fa-user mr-3 text-amber-500"></i> Informacion Personal</h3>
                                 <ul class="personal-info space-y-2 text-zinc-200">
@@ -337,7 +312,6 @@
                                 </ul>
                             </div>
                             
-                            <!-- Intereses (Se mantienen como placeholder) -->
                             <div class="info-card bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
                                 <h3 class="text-xl font-semibold mb-4 flex items-center text-zinc-100"><i class="fa-solid fa-heart mr-3 text-amber-500"></i> Intereses</h3>
                                 <div class="interests-grid grid grid-cols-2 gap-x-4 gap-y-3">
@@ -348,7 +322,6 @@
                                 </div>
                             </div>
 
-                            <!-- Habilidades Profesionales (Se mantienen como placeholder) -->
                             <div class="info-card bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600 md:col-span-2">
                                 <h3 class="text-xl font-semibold mb-4 flex items-center text-zinc-100"><i class="fa-solid fa-user-tie mr-3 text-amber-500"></i> Habilidades Profesionales</h3>
                                 <div class="prof-grid grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-3">
@@ -365,13 +338,11 @@
                 </section>
         
         
-                <!-- SECCION SKILLS -->
                 <section class="skills mb-20 scroll-mt-20" id="skills">
                     <h2 class="text-3xl font-bold mb-8 text-amber-400 uppercase tracking-widest">Habilidades Técnicas</h2>
         
                     <div class="skills-container grid grid-cols-1 md:grid-cols-2 gap-8">
                         
-                        <!-- Columna 1: Lenguajes / Frameworks -->
                         <div class="skills-box space-y-8">
                             <div class="p-6 bg-zinc-700 rounded-lg shadow-lg border border-zinc-600">
                                 <h4 class="text-2xl font-semibold mb-4 text-amber-400">Lenguajes</h4>
@@ -397,7 +368,6 @@
                             </div>
                         </div>
         
-                        <!-- Columna 2: DB y Herramientas / Formación -->
                         <div class="skills-box space-y-8">
                             <div class="p-6 bg-zinc-700 rounded-lg shadow-lg border border-zinc-600">
                                 <h4 class="text-2xl font-semibold mb-4 text-amber-400">Base de Datos y Herramientas</h4>
@@ -428,15 +398,12 @@
                 </section>
         
         
-                <!-- SECCION CURRICULUM -->
                 <section id="curriculum" class="curriculum mb-20 scroll-mt-20">
                     <h1 class="text-3xl font-bold mb-8 text-amber-400 uppercase tracking-widest">Currículum</h1>
                     
                     <div class="w-full">
-                        <!-- Educación -->
                         <h2 class="text-2xl font-semibold mb-6 text-zinc-100">Educación</h2>
-                        <div class="relative"> <!-- Contenedor para la línea de tiempo -->
-                            <div class="timeline-item">
+                        <div class="relative"> <div class="timeline-item">
                                 <div class="timeline-connector"></div>
                                 <div class="timeline-dot"></div>
                                 <div class="item-content bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
@@ -462,10 +429,8 @@
                             </div>
                         </div>
 
-                        <!-- Experiencia -->
                         <h2 class="text-2xl font-semibold mt-12 mb-6 text-zinc-100">Experiencia Laboral</h2>
-                        <div class="relative"> <!-- Contenedor para la línea de tiempo -->
-                            <div class="timeline-item">
+                        <div class="relative"> <div class="timeline-item">
                                 <div class="timeline-connector"></div>
                                 <div class="timeline-dot"></div>
                                 <div class="item-content bg-zinc-700 p-6 rounded-lg shadow-lg border border-zinc-600">
@@ -515,7 +480,30 @@
                     </div>
                 </section>
         
-                <!-- SECCION PORTFOLIO -->
+                <section id="titulacion" class="titulacion mb-20 scroll-mt-20">
+                    <h1 class="text-3xl font-bold mb-8 text-amber-400 uppercase tracking-widest">Proyecto de Titulación</h1>
+                    
+                    <div class="bg-zinc-700 p-8 rounded-lg shadow-lg border border-zinc-600 transition-all duration-300 hover:border-amber-500 hover:shadow-amber-500/10">
+                        <div class="flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-8">
+                            <img class="rounded-lg w-64 h-64 md:w-80 md:h-80 shadow-lg border-2 border-zinc-700 flex-shrink-0 object-cover" src="img/asistente-ug.png" alt="Icono Asistente"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/320x320/3f3f46/f59e0b?text=Asistente';">
+                            
+                            <div>
+                                <h3 class="text-2xl font-bold text-zinc-100 mb-3 leading-tight text-justify">
+                                    Desarrollo de un Asistente Virtual con Inteligencia Artificial para Apoyo Informativo de Reglamentos de Procesos Académicos
+                                </h3>
+                                <p class="text-zinc-300 mb-6 leading-relaxed text-justify">
+                                    Proyecto de tesis desarrollado para la Universidad de Guayaquil. Este sistema integra un asistente virtual potenciado por IA diseñado para facilitar, guiar y proveer información precisa a los estudiantes sobre las normativas y procesos académicos vigentes.
+                                </p>
+                                <a href="https://ugtesis.vercel.app/" target="_blank" rel="noopener noreferrer" 
+                                   class="inline-flex items-center px-5 py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg">
+                                    <i class="fa-solid fa-link mr-2"></i> Visitar Proyecto
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
                 <section id="portfolio" class="portfolio mb-20 scroll-mt-20">
                     <h1 class="text-3xl font-bold mb-8 text-amber-400 uppercase tracking-widest">Portafolio</h1>
                     
@@ -559,7 +547,7 @@
 
                         <a href="https://inmueble1.vercel.app/" target="_blank" rel="noopener noreferrer"
                             class="proyecto group relative block rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 border-2 border-zinc-700 hover:border-amber-500">
-                            <img src="img/inmueble.png" alt="Real Estate Project" class="w-full h-64 object-cover"
+                            <img src="img/inmueble.png" alt="Inmueble Project" class="w-full h-64 object-cover"
                                  onerror="this.onerror=null;this.src='https://placehold.co/600x400/3f3f46/f59e0b?text=Inmobiliaria';">
                             <div class="overlay absolute inset-0 bg-amber-900 bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
                                 <h3 class="text-2xl font-bold text-white mb-2">Portal Inmobiliario</h3>
@@ -573,7 +561,6 @@
                 </section>
         
         
-                <!-- SECCION CONTACTO -->
                 <section id="contacto" class="contacto mb-20 scroll-mt-20">
                     <h1 class="text-3xl font-bold mb-8 text-amber-400 uppercase tracking-widest">Contacto</h1>
                     <div class="bg-zinc-700 p-8 rounded-lg shadow-lg border border-zinc-600">
@@ -616,7 +603,6 @@
                             </button>
                         </form>
         
-                        <!-- Mensaje de confirmación -->
                         <div id="confirmationMessage" style="display:none;" role="status" aria-live="polite" 
                              class="mt-6 p-4 text-center text-green-300 bg-green-900/50 rounded-md border border-green-700">
                              ¡Gracias por tu mensaje! Te responderé pronto.
@@ -625,9 +611,8 @@
                 </section>
         
         
-                <!-- FOOTER -->
                 <footer class="text-zinc-400 py-12 text-center">
-                    <p>© 2025 KEVIN JOHAO TERAN RODRIGUEZ. All rights reserved.</p>
+                    <p>© 2026 KEVIN JOHAO TERAN RODRIGUEZ. All rights reserved.</p>
                 </footer>
 
             </main>
@@ -635,7 +620,6 @@
     </div>
 
 
-    <!-- SCRIPT -->
     <script>
         // --- Lógica del Menú Móvil ---
         const navMobile = document.getElementById('nav-mobile');
@@ -692,17 +676,14 @@
                         response.json().then(data => {
                             if (Object.hasOwn(data, 'errors')) {
                                 console.error(data["errors"].map(error => error["message"]).join(", "));
-                                // No usamos alert()
                                 console.error("Hubo un error, por favor revisa los campos.");
                             } else {
-                                // No usamos alert()
                                 console.error('Hubo un error al enviar el formulario.');
                             }
                         })
                     }
                 })
                 .catch(error => {
-                    // No usamos alert()
                     console.error('Hubo un error en la red.', error);
                 });
             });
